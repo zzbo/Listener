@@ -5,7 +5,7 @@ the listener module is use to simplify the events trigger and call of function;
 
 ##Usage Notes
 
-'''javascript
+```javascript
 var key1 = $.Listeners.sub('address')
     .onsuccess(function () {
       console.log('success-1')
@@ -19,4 +19,4 @@ var key1 = $.Listeners.sub('address')
       console.log('success-2')
     });
   }, 1000);
-'''
+```

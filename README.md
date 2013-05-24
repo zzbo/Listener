@@ -6,7 +6,7 @@ the listener module is use to simplify the events trigger and call of function;
 ##Usage Notes
 
 
-###Stage 1: First subscribe a subject to publish, and then add an event
+###Example 1: First subscribe a subject to publish, and then add an event
 
 ```javascript
 var key1 = $.Listeners.sub('address')

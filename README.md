@@ -60,3 +60,41 @@ var key3 = $.Listeners.sub('address3')
     $.Listeners.pub('address3').success();
   }, 3000);
 ```
+
+###Example 4: subscribe some subjects
+
+```javascript
+$.Listeners.sub('sub1').onsuccess(function(data){
+    console.log(1, data);
+  });
+
+  $.Listeners.pub('sub1').success({sub1 : true});
+      
+
+
+  //subscribe two subjects
+  $.Listeners.sub('sub1', 'sub2').onsuccess(function(data){
+    console.log(2, data);
+  });
+
+  $.Listeners.sub('sub1').onsuccess(function(data){
+    console.log(3, data);
+  });
+
+  //$.Listeners.pub('sub2').success({sub2 : true});
+  
+  setTimeout(function () {
+    //$.Listeners.pub('sub1', 'sub2').success();
+    $.Listeners.pub('sub2').success({sub2 : true});
+  }, 500);
+
+  setTimeout(function(){
+      $.Listeners.sub('sub2').onsuccess(function(data){
+        console.log(4, data);
+    });
+  }, 2000);
+    
+  setTimeout(function () {
+    $.Listeners.pub('sub2').success();
+  }, 1000);
+```

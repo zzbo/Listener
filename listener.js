@@ -162,7 +162,7 @@
 		 */
 		add : function(func) {
 			var list = this.list;
-			var type = VIPSHOP.isFunction(func);
+			var type = Object.prototype.toString.call(func) === '[object Function]';
 			for (var i = 0, len = list.length + 1; i < len; i++) {
 				if (type && func != list[i]) {
 					list.push(func);
